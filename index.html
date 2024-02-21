@@ -10,20 +10,52 @@
       background-color: #222;
       color: #eee;
       font-family: Iosevka, monospace;
-      line-height: 1.5;
-      font-size: 1.2em;
+      line-height: 1.4;
+      font-size: 1.1em;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .container {
       max-width: 800px;
+      margin: 1em;
     }
 
     a,
     a:hover,
     a:visited,
     a:active {
-      color: #0362fc;
+      color: #84B4FF;
     }
 
     a:hover {
       font-weight: bold;
+    }
+
+    header {
+      padding-bottom: 1em;
+      margin-bottom: 2em;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+
+    header h1 {
+      margin-bottom: 0;
+    }
+
+    header h3 {
+      margin-top: 0;
+      color: #AAA;
+    }
+
+    footer {
+      color: #777;
+      border-top: 1px solid #444;
+      text-align: center;
+      margin: 2em 0;
+      padding-top: 2em;
     }
   </style>
 
@@ -31,40 +63,99 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <h1>WTH Stack</h1>
-  </header>
+  <div class="container">
+    <header>
+      <h1>WTH Stack</h1>
+      <h3>Server-Side Render Your Desktop Apps</h3>
+    </header>
+    <main>
+      <p>
+        Introducing a new desktop application stack for web developers who love HTML and CSS, but hate
+        JavaScript! The WTH stack allows you to write a fully-featured desktop application using Go.
+        With the WTH stack, you can bring your
+        <a href="https://htmx.org/essays/hypermedia-driven-applications/">hypermedia-driven applications</a>
+        to the desktop. The WTH stack embraces the concept of
+        <a href="https://htmx.org/essays/hateoas/">HATEOAS</a>
+        and server-side-rendered UIs.
+      </p>
 
-  <p>
-    Introducing a new desktop application stack for web developers who hate JavaScript!
-  </p>
+      <h2>The WTH Stack</h2>
 
-  <h2>What is WTH Stack?</h2>
+      <p>
+        There are three components to the WTH Stack:
+      </p>
 
-  <p>
-    There are three components to the WTH Stack:
-  </p>
+      <ul>
+        <li>
+          <b>
+            <a href="https://wails.io/" target="_blank">Wails</a> &mdash;
+            a Go library for building cross-platform applications.
+          </b>
+          This acts as the web renderer host and includes a built-in HTTP server which is used to serve
+          the application's UI.
+        </li>
+        <li>
+          <b>
+            <a href="https://templ.guide" target="_blank">Templ</a> &mdash;
+            a templating language based on Go for HTML and CSS.
+          </b>
+          This powerful Go-based templating engine allows you to write server-generated HTML and CSS.
+        </li>
+        <li>
+          <b>
+            <a href="https://htmx.org/" target="_blank">HTMX</a> &mdash;
+            a small JavaScript library for declaratively adding interactivity to HTML elements.
+          </b>
+          This library extends HTML to be a complete hypertext. It allows you to declaratively annotate
+          your HTML elements with attributes to trigger HTTP requests and update the DOM with the HTML
+          from the response.
+        </li>
+      </ul>
 
-  <ul>
-    <li>
-      <a href="https://wails.io/" target="_blank">Wails</a> &mdash;
-      a Go library for building cross-platform applications.
-    </li>
-    <li>
-      <a href="https://templ.guide" target="_blank">Templ</a> &mdash;
-      a templating language based on Go for HTML, CSS, and JavaScript.
-    </li>
-    <li>
-      <a href="https://htmx.org/" target="_blank">HTMX</a> &mdash;
-      a small JavaScript library for declaratively adding interactivity to web pages in HTML.
-    </li>
-  </ul>
+      <h2>What the Hell is This?</h2>
+      <p>
+        Currently, the best option for building HTML/CSS-based desktop applications is Electron with
+        React, but that requires that you write JavaScript. Using JavaScript to render HTML client-side
+        is slow, and thus the industry has been moving towards server-side rendering (SSR).
+        Unfortunately, this move has left desktop applications behind because there's no server to
+        handle rendering.
+      </p>
+      <p>
+        The WTH stack solves this problem by handling the HTTP requests made by your application using
+        Wails. Wails allows you to provide a standard Go backend which your application UI can interact
+        with as if it were over HTTP.
+      </p>
+      <p>
+        One major advantage of the WTH stack is that it allows backend-focused developers to build
+        desktop applications using tools and techniques they are already familiar with. It also
+        centralizes the application's state, logic, and rendering in a single place (the backend) which
+        makes the frontend a true <i>view</i> layer (in the
+        <a href="https://en.wikipedia.org/wiki/Model-view-controller" target="_blank">MVC</a>
+        sense).
+      </p>
 
-  <h2>What the Hell is This?</h2>
-  <p>
-    Good question! The WTH stack is for people who hate JavaScript, but still want to build
-    HTML/CSS-based desktop applications.
-  </p>
+      <h2>Isn't This Kinda Cursed?</h2>
+      <p>
+        Yes.
+      </p>
+
+      <h2>How Do I Get Started?</h2>
+      <p>
+        There is a Wails template for this stack already:
+        <a href="https://github.com/PylotLight/wails-htmx-templ-template">
+          PylotLight/wails-htmx-templ-template</a>, however you may find that it has a lot of
+        complexity (Tailwind, Chi, etc.) that you don't need. It's very easy to rip that stuff out.
+      </p>
+    </main>
+
+    <footer>
+      <small>
+        &copy; 2024
+        <a href="https://nevarro.space">Nevarro LLC</a>. All rights reserved.
+        <a href="https://github.com/nevarro-space/wthstack.com/">Source code</a>.
+      </small>
+    </footer>
+  </div>
 </body>
 
 </html>
